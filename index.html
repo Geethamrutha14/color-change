@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="script1.js">
+</head>
+<body style="text-align: center;">
+   
+    <h1>Welcome!!!</h1>
+     <button id="btn">change Background!!!</button>
+
+     <script>
+        const heading = document.querySelector('h1');
+        const backGround = document.querySelector('button');
+        const r= Math.floor(Math.random()*255)+1;
+const g= Math.floor(Math.random()*255)+1;
+const b=Math.floor(Math.random()*255)+1;
+const makeColor =()=>{
+    const r= Math.floor(Math.random()*255)+1;
+    const g= Math.floor(Math.random()*255)+1;
+    const b=Math.floor(Math.random()*255)+1;
+    if(luminiscence(r,g,b) < 128){
+        heading.style.color = 'white';
+    }
+    else{
+        heading.style.color ='black';
+    }
+    return `rgb(${r} , ${g} , ${b})`;
+}
+const luminiscence = (r,g,b)=>{
+    return r*0.299 + 0.587*g + 0.114*b;
+}
+
+backGround.addEventListener('click', ()=>{
+    const newColor =makeColor();
+heading.innerText = newColor;
+document.body.style.backgroundColor = newColor;
+})
+     </script>
+</body>
+</html>
